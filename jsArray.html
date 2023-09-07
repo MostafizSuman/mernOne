@@ -1,0 +1,269 @@
+<html>
+    <head>
+        <title>
+            <h1>Javascript Array</h1>
+        </title>
+        
+    </head>
+    <body>
+        <script>
+            var arr1=new Array();
+            document.write("<b>Array1</b><br>")
+            for(let i=1;i<=5;i++){
+               arr1[i]=i*5;
+               document.write(i);
+               console.log(i)}
+           document.write(arr1[0]+'<br>');
+           
+           
+           var arr2=Array(5);
+           document.write("<b>Array2</b><br>")
+           for (var j=0;j<10;j++)
+           {
+               arr2[j]= j * 10;
+               document.writeln(arr2[j]);
+           }
+           document.write(arr2[j]);
+
+           let scores = new Array(1, 2, 3); // create an array with three numbers 1,2 3
+           scores.push(4)
+           console.log(scores)
+           scores.unshift(5);
+           console.log(scores);
+           scores.pop();
+           console.log(scores);
+           scores.shift();
+           for(i=0;i<scores.length;i++)
+            console.log(scores[i]);
+
+           let seas = ['Black Sea', 'Caribbean Sea', 'North Sea', 'Baltic Sea'];
+           let index=seas.indexOf("Red sea");
+           console.log(index);
+           index=seas.indexOf('North Sea');
+           console.log(index);
+           let concatArr=arr1.concat(arr2);
+           console.log(' arr1:');
+           console.log(arr1)
+           console.log('concated array:');
+           console.log(' arr2:');
+           console.log(arr2);
+           console.log(concatArr);
+           let concat2=[...arr1,...arr2];
+           console.log("concated array 2: \n"+concat2);
+
+            const a1 = ["Cecilie", "Lone"];
+            const a2 = ["Emil", "Tobias", "Linus"];
+            const a3 = ["Robin"];
+            const children = a1.concat(a2, a3, arr1);
+            console.log(children);
+            //array.form method 
+            console.log("Array.from");  
+            name=Array.from("Md. Mostafijur Rahman");
+            console.log(name);
+            w1=Array.from(children);
+            console.log(w1);
+            
+
+
+
+            let signs = new Array('Red');// creates an array with one element 'Red'
+            console.log("signs is an array: "+Array.isArray(signs));
+            
+            const fruits = ["Banana", "Orange", "Apple", "Mango"];
+            console.log("fruits:"+fruits);
+            fruits.copyWithin(3,1);
+            console.log(fruits);
+
+            //filter
+            console.log("checking filter")
+            let ages=[8, 33, 23, 12, 18, 9];
+            let adult=ages.filter(checkAdult);
+            console.log("ages: "+ages);
+            console.log("Adult: "+adult);
+            function checkAdult(age)
+            {
+                // console.log("isAdult:");
+                //console.log(age>=18);
+                if(age>=18) return true;
+                else return false;
+            }
+            let immaturate=ages.filter(
+                function isImmature(age)
+                {
+                    if(age<18)
+                        return true;
+                }
+            )
+            console.log("Immaturate:"+immaturate);
+            
+            // arr.find() method
+            console.log("\nThe Javascript arr.find() method in Javascript is used to get the value of the first element in the array that satisfies the provided condition. It checks all the elements of the array and whichever the first element satisfies the condition is going to print. This function will not work function having the empty array elements and also does not change the original array.");
+            let found=ages.find(checkAdult);
+            console.log("found:"+found);
+            found=fruits.find(checkAdult);
+            console.log("found:"+found);
+            let foundInd=ages.findIndex(checkAdult);
+            console.log("found Index:"+foundInd);
+
+
+            //The Array.entries() method works on iterable objects such as an array (or any data iterable data structure) and
+            // it is used to fetch all the entries of the same data structure. 
+            //This method is used to get a new Array that contains the key and value pairs for each index of an array. 
+            let languages = ["HTML", "CSS", "JavaScript", "ReactJS"];
+            let g=languages.entries();
+            for(x of g){
+            console.log(x);
+            console.log("languages",x);
+            }
+            //Array.every() method
+            console.log("\nJavascript Array.every() method considers all the elements of an array and then further checks whether all the elements of the array satisfy the given condition (passed by in user) or not that is provided by a method passed to it as the argument.");
+            let allAdult=adult.every(checkAdult ) ;
+            console.log("all adult in adult array:"+allAdult);
+            allAdult=ages.every(checkAdult);
+            console.log("all adult in ages array:"+allAdult);
+
+            //Array fill() Method 
+            console.log("\nThe JavaScript Array fill() Method fills a given range of array elements with the given value. This method is used to manipulate the existing array according to our needs.")
+            console.log("ages:"+ages);
+            console.log(ages.fill(100,1,3));
+            ages.fill()
+            console.log("ages array is modified permenantly: "+ages);
+            console.log(ages.fill(50,2));
+            console.log(ages.fill(100));
+
+           
+            //Sometimes, you need to take an array, transform its elements, and include the results in a new array
+            let circles=[10,20,30];
+            let radi=[10,20,30]
+            let areas=[];
+            let volumes=[];
+            let area = 0;
+            for(let i=0;i<circles.length;i++)
+            {
+                area=Math.floor(Math.PI * circles[i] * circles[i])
+                areas.push(area);
+            }
+            console.log("Circle radius:"+circles);
+            console.log("areas of circle:"+areas)
+
+            //Array map method can easily do it
+            function spehereVol(rad)
+            {
+                return Math.floor(4/3 * Math.PI * Math.pow(rad,3));
+            }
+            volumes=radi.map(spehereVol);
+            document.write("<br>volume of speheres:"+volumes);
+
+            // splice() method allows you to insert new elements into the middle of an array.
+            // However, you can use this method to delete and replace existing elements as well.
+            let scr = [1, 2, 3, 4, 5];
+            let deletedScr = scr.splice(0, 3);
+            console.log("scr:"+scr); //  [4, 5]
+            console.log("deletedScr:"+deletedScr); // [1, 2, 3]
+            let colors = ['red', 'green', 'blue'];
+            //The following statement inserts one element after the second element
+            colors.splice(1,0,"purple","pink");
+            //The second argument is zero (0) that instructs the splice() method to not delete any array elements.
+            console.log(colors); // ["red", "purple","pink", "green", "blue"]
+            //replacing element
+            colors.splice(0,3,"magenta","cyan","black");
+            console.log(colors); // ["magenta","cyan","black", "green", "blue"]
+            //replacing multiple element by a single element
+            let delCol=colors.splice(1,2,"gray");
+            console.log("deleted color:"+delCol);
+            console.log(colors); // ["magenta","gray","green", "blue"]
+            // replace one element with multiple elements by passing more argument
+            colors.splice(2,1,"yellow","white","orange");
+            console.log(colors);//["magenta","gray","yellow","white","orange", "blue"]
+
+            //slice() method extracts the part of a given array and returns it without affecting original array
+            scores = [10, 20, 30, 10, 40, 20];
+            let slicedArr=scores.slice(1,3);
+            document.write("<br>slicedArr:"+slicedArr)
+            
+            //sort()
+            sortedScores=scores.sort();
+            document.write("<br>scores:"+scores);
+            document.writeln("<br>sortedScores:"+sortedScores);
+            document.write("<br>sorted colors"+colors.sort((a,b)=>b-a));
+
+            //reverse()
+            let reverseArr=sortedScores.reverse();
+            document.writeln("<br>reverse score:"+reverseArr);
+            //JavaScript array indexOf() method
+            //To find the position of an element in an array, you use the indexOf() method. 
+            //This method returns the index of the first occurrence the element that you want to find, or -1 if the element is not found.
+            scores = [10, 20, 30, 10, 40, 20];
+            console.log("scores:"+scores);
+            console.log("index of 10, 40,100:")
+            console.log(scores.indexOf(10));
+            console.log(scores.indexOf(40));
+            console.log(scores.indexOf(100));
+
+            function find(val,list)
+            {
+                let idxList=[];
+                let idx=list.indexOf(val);
+                while(idx!=-1)
+                {
+                    idxList.push(idx);
+                    idx=list.indexOf(val,idx+1);
+                }
+                return idxList;
+            }
+            console.log("10 in scores:\n")
+            console.log(find(10,scores));
+
+            //lastIndexOf()
+            console.log("last index of 10 in scores:")
+            console.log(scores.lastIndexOf(10));// 3
+
+            //includes() method returns true if an array contains a given element; Otherwise, it returns false.
+            let bmw={
+                name:'bmw',
+                rating: 100
+            };
+            let toyota={
+                name:'toyota',
+                rating: 80
+            }
+            ford={
+                name:'bedford',
+                rating: 70
+            }
+            let cars=[bmw,ford];
+            console.log("cars contain bmw:")
+            console.log(cars.includes(bmw));
+            console.log("cars contain toyota:")
+            console.log(cars.includes(toyota));
+            console.log("cars contain bmw from index 1:")
+            console.log(cars.includes(bmw,1));
+
+            //array.flat(depth) method creates a new array with all the elements of the subarrays concatenated to it recursively up to a
+            // specified depth.
+            let numbers = [1, 2, [3, 4, 5]];
+            console.log("numbers:"+numbers)
+            let flatNumbers = numbers.flat();
+            console.log("flat numbers:"+flatNumbers);
+            numbers = [1, 2, [3, 4, 5, [6, 7]]];
+            console.log("numbers:"+numbers);
+            flatNumbers = numbers.flat(1);
+            console.log("flat numbers:"+flatNumbers);
+            numbers = [1, 2, [3, 4, 5, [6, 7, [8, 9]]]];
+            flatNumbers = numbers.flat(Infinity);
+
+            //The flatMap() method is the combination of the map() method followed by the flat() method of depth 1.
+            //The flatMap() method first maps each element in an array using a mapping function and then flattens the results into a new array.
+            let sentences = ["JavaScript Array flatMap()",  "is really", "", " ","Awesome"];
+            let words=sentences.map(s=>s.split(' '));
+            console.log(words);
+            words=sentences.flatMap(s=>s.split(' '));
+            console.log(words);
+        </script>
+        <br>
+        <a href="index.html">Homepage</a>  
+    
+    </body>
+    
+
+</html>

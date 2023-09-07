@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <h1>Numeric separator and Literal</h1>
+        <title>
+            Numeric separator and Literal
+        </title>
+        
+    </head>
+    <body>
+        <script>
+            document.write("<b>The numeric separator allows you to create a visual separation between groups of digits by using underscores (_) as separators. </b>");
+            document.write("<br> number with numeric separator 1_000_000_000 = ");
+           //Numeric separator
+           let number=1_000_000_000;
+           let amount=123_450.000_056;
+           document.write(number)
+           document.write("<br> number with numeric separator 123_450.000_056 = ");
+           document.write(amount)
+    
+           document.write("<br> All numbers in javascript is treated as floating point numbers ");
+           document.write("<br><br><b> Big Int , Binary, Octal and Hex Literal</b>");
+           // BigInt
+            const max = 9_223_372_036_854_775_807n;
+            document.write("<br>max: 9_223_372_036_854_775_807n ="+max);
+            // binary
+            let nibbles = 0b100_000_001;
+            document.write("<br>nibbles: 0b100_000_001 ="+nibbles);
+
+            // octal
+            let val = 0o1234_5670;
+            document.write("<br>octal value: 0o1234_5670 ="+val);
+
+            // hex
+            let message = 0xD0_E0_F0;
+            document.write("<br>Hex value: 0xD0_E0_F0 ="+message);
+    
+    
+       </script>
+       <br>
+       <a href="index.html">Homepage</a>  
+    
+    </body>
+    
+
+</html>
